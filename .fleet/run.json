@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "command",
+            "name": "final",
+            "dependsOn": ["first", "second"],
+            "program": "echo",
+            "args": ["final"]
+        }, {
+        "type": "command",
+        "name": "first",
+        "program": "echo",
+        "args": ["first"]
+    }, {
+        "type": "command",
+        "name": "second",
+        "program": "echo",
+        "args": ["second"]
+    }
+    ]
+}
