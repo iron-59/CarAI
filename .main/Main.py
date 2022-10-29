@@ -1,20 +1,19 @@
 from Car import *
-from Render import *
+from Window import *
+import os
 
-running = True
-x = 0
-render = Render()
+cache = ImageCache()
+render = Render(cache.at_index(0))
+
+car = Car()
+
 def run():
-    global running, x, render
-
+    global render, car
+    listener = InputListener(car, True)
+    listener.listen()
     render.run()
-    while running:
+    openwindow()
 
-
-        print('test')
-        if x >= 5:
-            running = False
-        x += 1
 run()
 
 
