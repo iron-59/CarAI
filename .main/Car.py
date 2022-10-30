@@ -1,32 +1,21 @@
-import keyboard
+from Render import *
 class Car:
 
-    def __init__(self):
+    def __init__(self, render):
         self.x = 0
         self.y = 0
-    def move(self):
-        self.x += 1
-        print(self.x)
-class InputListener:
-    def __init__(self, car, running):
-        self.run = running
-        self.car = car
-    def listen(self):
-        while self.run:
-            if keyboard.is_pressed('w'):
-                print('w')
-                return
-            elif keyboard.is_pressed('a'):
-                print('a')
-                return
+        self.render = render
+        self.render.create_moveable_img()
+    def move_car(self, key_list):
 
-
-
-
-
-
-
-
-
-
-
+        for c in key_list:
+            if c == 'w':
+                self.y += 100
+            elif c == 'a':
+                self.x -= 100
+            elif c == 's':
+                self.y -= 100
+            elif c == 'd':
+                self.x += 100
+            self.render.move_img(self.x, self.y)
+        print("(" + str(self.x) + "," + str(self.y) + ")")
